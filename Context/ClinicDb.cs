@@ -21,5 +21,15 @@ public class ClinicDb : DbContext
             entity.Property(e => e.Description).HasMaxLength(100);
             entity.Property(e => e.Type).HasMaxLength(100);
         });
+        
+        modelBuilder.Entity<Doctor>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id).HasColumnName("IdDoctor");
+            entity.Property(e => e.FirstName).HasMaxLength(100);
+            entity.Property(e => e.LastName).HasMaxLength(100);
+            entity.Property(e => e.Email).HasMaxLength(100);
+        });
     }
 }
