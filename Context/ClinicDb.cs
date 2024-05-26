@@ -12,9 +12,14 @@ public class ClinicDb : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Medicament>(medicament =>
+        modelBuilder.Entity<Medicament>(entity =>
         {
-            medicament.HasKey(e => e.Id);
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id).HasColumnName("IdMedicament");
+            entity.Property(e => e.Name).HasMaxLength(100);
+            entity.Property(e => e.Description).HasMaxLength(100);
+            entity.Property(e => e.Type).HasMaxLength(100);
         });
     }
 }
