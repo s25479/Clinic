@@ -6,4 +6,6 @@ public class Doctor
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
+
+    public ICollection<Prescription> Prescriptions { get; } = new List<Prescription>();
 }
