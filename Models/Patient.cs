@@ -4,7 +4,7 @@ public class Patient
 {
     public Patient(NewPrescriptionDTO.PatientDTO patientDTO)
     {
-        Id = patientDTO.Id!.Value;
+        Id = patientDTO.PatientId!.Value;
         FirstName = patientDTO.FirstName;
         LastName = patientDTO.LastName;
         BirthDate = patientDTO.BirthDate!.Value;

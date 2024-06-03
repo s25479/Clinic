@@ -1,3 +1,4 @@
+using Clinic.Exceptions;
 using Clinic.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,19 @@ public class PrescriptionsController : ControllerBase
     [HttpPut]
     public async Task<IActionResult> AddPrescription(NewPrescriptionDTO newPrescription)
     {
-        return Ok(newPrescription);
+        try
+        {
+            await prescriptionsService.AddPrescription(newPrescription);
+            return Ok();
+        }
+        catch (ValidationException e)
+        {
+            return BadRequest(e.Message);
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError);
+        }
     }
 
     private readonly PrescriptionsService prescriptionsService;
