@@ -2,7 +2,9 @@ using Clinic.Exceptions;
 using Clinic.Models;
 using Microsoft.EntityFrameworkCore;
 
-public class PatientsService
+namespace Clinic.Services;
+
+public class PatientsService : IPatientsService
 {
     public PatientsService(ClinicDb dbContext)
     {

@@ -1,4 +1,5 @@
 using Clinic.Exceptions;
+using Clinic.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Clinic.Controllers;
@@ -7,7 +8,7 @@ namespace Clinic.Controllers;
 [ApiController]
 public class PatientsController : ControllerBase
 {
-    public PatientsController(PatientsService patientsService)
+    public PatientsController(IPatientsService patientsService)
     {
         this.patientsService = patientsService;
     }
@@ -30,5 +31,5 @@ public class PatientsController : ControllerBase
         }
     }
 
-    private readonly PatientsService patientsService;
+    private readonly IPatientsService patientsService;
 }
